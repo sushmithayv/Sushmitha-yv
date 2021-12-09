@@ -1,0 +1,22 @@
+!#/bin/bash
+
+c=()
+for F in ${*}
+do
+   c[F]=$( wc -c < ${F})
+   echo "Number of characters in ${F} is ${c[F]}"
+   echo
+done
+
+min=${c[0]}
+minFile=0
+
+for i in c
+do
+   if [ min -gt ${c[i]} ]; then
+      min=${c[i]}
+      minFile=$i
+   fi
+done
+
+echo "File with min chars is $minFile"
